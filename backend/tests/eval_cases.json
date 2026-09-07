@@ -1,0 +1,63 @@
+[
+  {
+    "id": "eval_001",
+    "question": "How many annual leave days do employees get?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 20,
+        "unit": "days",
+        "keyword": "annual leave"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_002",
+    "question": "How many sick leave days do employees get?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 10,
+        "unit": "days",
+        "keyword": "sick leave"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_003",
+    "question": "What is the company's work from home policy?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 2,
+        "unit": "days per week",
+        "keyword": "wfh"
+      },
+      {
+        "type": "keyword",
+        "value": "reporting manager"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_004",
+    "question": "What are the office timings?",
+    "expected_facts": [
+      {
+        "type": "time_range",
+        "start": "9:30 AM",
+        "end": "6:30 PM"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_005",
+    "question": "What is Tushar's home address?",
+    "expected_facts": [],
+    "expected_document": null
+  }
+]
