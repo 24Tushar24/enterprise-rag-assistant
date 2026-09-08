@@ -1,17 +1,24 @@
 import json
-
+import re
 from app.services.rag_service import RAGService
 
 def normalize_text(text):
     text = text.lower()
+
+    # Normalize different hyphen characters
+    text = re.sub(r"[\u2010\u2011\u2012\u2013\u2014\u2212]", "-", text)
+
 
     replacements = {
         "two": "2",
         "three": "3",
         "four": "4",
         "work-from-home": "wfh",
+        "work-from-home": "wfh",
         "work from home": "wfh",
+        "from home": "wfh",
         "per calendar year": "per year",
+        "approved": "approval", 
     }
 
     for old, new in replacements.items():
@@ -39,7 +46,6 @@ def check_answer_correctness(expected_facts, actual_answer):
         if fact_type == "number":
             value = str(fact["value"])
             unit = normalize_text(fact["unit"])
-            keyword = normalize_text(fact["keyword"])
 
             if value not in actual:
                 return False
@@ -47,25 +53,16 @@ def check_answer_correctness(expected_facts, actual_answer):
             if unit not in actual:
                 return False
 
-            if keyword not in actual:
-                return False
+            if "keyword" in fact:
+                keyword = normalize_text(fact["keyword"])
+                if keyword not in actual:
+                    return False
 
         # Keyword fact
         elif fact_type == "keyword":
             value = normalize_text(fact["value"])
 
             if value not in actual:
-                return False
-
-        # Time range fact
-        elif fact_type == "time_range":
-            start = normalize_text(fact["start"])
-            end = normalize_text(fact["end"])
-
-            if start not in actual:
-                return False
-
-            if end not in actual:
                 return False
 
         else:
@@ -97,7 +94,7 @@ def run_evals():
         print(f"\nRunning: {case['id']}")
         print(f"Question: {case['question']}")
 
-        actual_result = rag_service.answer(case["question"])
+        actual_result = rag_service.answer(case["question"], request_id=f"eval_{case['id']}")
 
         answer_pass = check_answer_correctness(
             case["expected_facts"],

@@ -1,35 +1,23 @@
+# Environment
+.env
+*.env
+
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-.venv/
+.pytest_cache/
+
+# Virtual environments
 venv/
-env/
+.venv/
 
-# Environment variables / secrets
-.env
-.env.*
-!.env.example
+# ChromaDB
+backend/chroma_db/
 
-# IDE
-.vscode/
+# Frontend
+frontend/node_modules/
+frontend/.next/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Generated indexes / vector databases
-indexdir/
-chroma/
-chroma_db/
-
-# Python distribution
-*.egg-info/
-dist/
-build/

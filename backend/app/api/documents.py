@@ -80,3 +80,16 @@ async def upload_document(file: UploadFile = File(...)):
 
         if "temp_file_path" in locals() and os.path.exists(temp_file_path):
             os.remove(temp_file_path)
+
+
+@router.get("")
+def get_documents():
+    try:
+        documents = vector_store.list_documents()
+        return {"documents": documents}
+    except Exception as e:
+        print("GET DOCUMENTS ERROR:", repr(e))
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )

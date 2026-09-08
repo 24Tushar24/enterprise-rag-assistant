@@ -47,9 +47,12 @@
     "question": "What are the office timings?",
     "expected_facts": [
       {
-        "type": "time_range",
-        "start": "9:30 AM",
-        "end": "6:30 PM"
+        "type": "keyword",
+        "value": "9:30 AM"
+      },
+      {
+        "type": "keyword",
+        "value": "6:30 PM"
       }
     ],
     "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
@@ -59,5 +62,275 @@
     "question": "What is Tushar's home address?",
     "expected_facts": [],
     "expected_document": null
-  }
+  },
+  {
+    "id": "eval_006",
+    "question": "How many days of annual leave are provided per year?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 20,
+        "unit": "days"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_007",
+    "question": "How many sick leave days can an employee take?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 10,
+        "unit": "days"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_008",
+    "question": "Can employees work from home?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 2,
+        "unit": "days per week",
+        "keyword": "wfh"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_009",
+    "question": "Who needs to approve work from home?",
+    "expected_facts": [
+      {
+        "type": "keyword",
+        "value": "reporting manager"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_010",
+    "question": "What time does the office start?",
+    "expected_facts": [
+      {
+        "type": "keyword",
+        "value": "9:30 AM"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_011",
+    "question": "When does the office close?",
+    "expected_facts": [
+      {
+        "type": "keyword",
+        "value": "6:30 PM"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_012",
+    "question": "How many WFH days are allowed every week?",
+    "expected_facts": [
+      {
+        "type": "number",
+        "value": 2,
+        "unit": "days per week",
+        "keyword": "wfh"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_013",
+    "question": "Is manager approval required for working from home?",
+    "expected_facts": [
+      {
+        "type": "keyword",
+        "value": "manager"
+      }
+    ],
+    "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+  },
+  {
+    "id": "eval_014",
+    "question": "What is the company's policy regarding maternity leave?",
+    "expected_facts": [],
+    "expected_document": null
+  },
+  {
+    "id": "eval_015",
+    "question": "What is the employee's home address?",
+    "expected_facts": [],
+    "expected_document": null
+  },
+  {
+  "id": "eval_016",
+  "question": "How much annual leave is available to full-time employees?",
+  "expected_facts": [
+    {
+      "type": "number",
+      "value": 20,
+      "unit": "days"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_017",
+  "question": "What is the yearly sick leave entitlement?",
+  "expected_facts": [
+    {
+      "type": "number",
+      "value": 10,
+      "unit": "days"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_018",
+  "question": "How many times per week can an employee work remotely?",
+  "expected_facts": [
+    {
+      "type": "number",
+      "value": 2,
+      "unit": "days per week"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_019",
+  "question": "Who approves an employee's remote work request?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "manager"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_020",
+  "question": "What are the company's normal working hours from Monday to Friday?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "9:30 AM"
+    },
+    {
+      "type": "keyword",
+      "value": "6:30 PM"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_021",
+  "question": "Is remote work available to employees?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "wfh"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_022",
+  "question": "Does working from home require prior approval?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "approval"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_023",
+  "question": "Are employees required to remain reachable while working from home?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "reachable"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_024",
+  "question": "Do employees have to attend scheduled meetings while working remotely?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "scheduled meetings"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_025",
+  "question": "Can managers require remote employees to come to the office?",
+  "expected_facts": [
+    {
+      "type": "keyword",
+      "value": "office"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_026",
+  "question": "What is the company's policy for paternity leave?",
+  "expected_facts": [],
+  "expected_document": null
+},
+{
+  "id": "eval_027",
+  "question": "What is the employee's salary?",
+  "expected_facts": [],
+  "expected_document": null
+},
+{
+  "id": "eval_028",
+  "question": "What is the company's internet reimbursement policy?",
+  "expected_facts": [],
+  "expected_document": null
+},
+{
+  "id": "eval_029",
+  "question": "How many annual leave days are available and how many sick leave days are available?",
+  "expected_facts": [
+    {
+      "type": "number",
+      "value": 20,
+      "unit": "days"
+    },
+    {
+      "type": "number",
+      "value": 10,
+      "unit": "days"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+},
+{
+  "id": "eval_030",
+  "question": "Can I work from home, and how many days per week are allowed?",
+  "expected_facts": [
+    {
+      "type": "number",
+      "value": 2,
+      "unit": "days per week"
+    }
+  ],
+  "expected_document": "Dummy_Company_Leave_WFH_Policy.pdf"
+}
 ]

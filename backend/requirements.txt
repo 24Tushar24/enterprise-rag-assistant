@@ -5,3 +5,5 @@ groq
 pymupdf
 sentence-transformers
 langchain-text-splitters
+chromadb
+python-multipart

@@ -1,26 +1,138 @@
-# Project 1: RAG Assistant
+# Enterprise RAG AI Assistant
 
-Starter structure for a Retrieval-Augmented Generation assistant.
+An enterprise-grade Retrieval-Augmented Generation (RAG) application
+that allows users to upload documents and ask grounded questions with
+source citations.
 
-## Structure
+## Features
 
-- `backend/app/api`: API routes
-- `backend/app/core`: configuration and shared application concerns
-- `backend/app/models`: request, response, and domain models
-- `backend/app/services`: application services
-- `backend/app/rag`: retrieval and generation pipeline
-- `backend/app/evals`: backend evaluation helpers
-- `backend/tests`: backend tests
-- `frontend`: frontend application
-- `data`: source documents and local data
-- `evals`: evaluation datasets and reports
+- PDF document ingestion
+- Text extraction and cleaning
+- Recursive text chunking
+- Sentence Transformer embeddings
+- Persistent ChromaDB vector store
+- Semantic similarity retrieval
+- Cross-Encoder reranking
+- Query rewriting
+- Context-bounded generation
+- Source/page citations
+- Abstention when evidence is insufficient
+- Prompt injection protection
+- PII and secret redaction
+- Structured LLM output validation
+- Request-level observability
+- Dockerized backend
+- Persistent vector database
 
-## Run the backend
+## Architecture
 
-```powershell
+Next.js Frontend
+        ↓
+FastAPI Backend
+        ↓
+Guardrails
+        ↓
+Query Rewrite
+        ↓
+Embedding
+        ↓
+ChromaDB Retrieval
+        ↓
+Cross-Encoder Reranking
+        ↓
+Context Assembly
+        ↓
+Groq LLM
+        ↓
+Structured Output Validation
+        ↓
+Answer + Citations
+
+## Tech Stack
+
+### Backend
+- Python
+- FastAPI
+- Pydantic
+- ChromaDB
+- Sentence Transformers
+- LangChain Text Splitters
+- Groq
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### Infrastructure
+- Docker
+- Docker Volume
+
+## RAG Pipeline
+
+### Ingestion
+
+PDF
+→ Text Extraction
+→ Cleaning
+→ Chunking
+→ Metadata
+→ Embeddings
+→ ChromaDB
+
+### Query
+
+User Query
+→ Guardrail
+→ Query Rewrite
+→ Embedding
+→ Retrieval
+→ Reranking
+→ Context Assembly
+→ LLM
+→ Validation
+→ Answer + Citations
+
+## Guardrails
+
+The system protects against:
+
+- Prompt injection
+- Unsupported answers
+- Retrieved-document instruction attacks
+- Secret leakage
+- Basic PII leakage
+- Invalid LLM structured output
+
+When sufficient evidence is unavailable, the system abstains instead
+of generating an unsupported answer.
+
+## Observability
+
+Each request tracks:
+
+- Request ID
+- Request latency
+- Retrieval latency
+- LLM latency
+- Retrieved sources
+- Model name
+- Input/output/total tokens
+- Errors and rate limits
+
+## Docker
+
+The backend runs inside Docker and uses a persistent ChromaDB volume,
+so indexed documents survive container recreation.
+
+## Running Locally
+
+### Backend
+
+```bash
 cd backend
-python -m pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-
-Health endpoint: `GET http://localhost:8000/health`
+docker build -t rag-backend .
+docker run -d -p 8000:8000 --env-file .env \
+  -v rag-chroma-data:/app/chroma_db \
+  --name rag-backend-container rag-backend

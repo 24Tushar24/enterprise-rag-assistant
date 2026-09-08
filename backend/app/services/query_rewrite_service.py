@@ -6,7 +6,7 @@ class QueryRewriteService:
     def __init__(self):
         self.llm_service = LLMService()
 
-    def rewrite(self, query: str) -> str:
+    def rewrite(self, query: str, request_id: str | None = None) -> str:
 
         prompt = f"""
 You are a search query optimizer for an enterprise document retrieval system.
@@ -24,6 +24,6 @@ User query:
 {query}
 """
 
-        rewritten_query = self.llm_service.generate(prompt)
+        rewritten_query = self.llm_service.generate(prompt, request_id=request_id)
 
         return rewritten_query.strip()
